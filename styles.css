@@ -1,0 +1,388 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #dfdfdf;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* إخفاء المحتوى الأول */
+#content {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.header {
+    background-color: #ffffffee;
+    color: white;
+    padding: 7px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+.logo {
+    margin-right: 40px;
+    height: 25px; /* ارتفاع الصورة */
+}
+
+.nav {
+    display: flex;
+    gap: 40px;
+}
+.nav a {
+    color: #414141;
+    text-decoration: none;
+    font-size: 15px;
+    font-style: bold;
+}
+.menu-icon {
+    color: rgba(53, 53, 53, 0.527);
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    animation: move 2s ;
+}
+@keyframes move {
+   
+    50% {
+      transform: translateX(-100px);
+    }
+   
+  }
+@media (max-width: 834px) {
+    .nav {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 40px; /* علشان نبعد القائمة عن الهدر */
+        right: 0;
+        width: 100%;
+        padding: 30px;
+        text-align: right; /* علشان نركز النص في شاشة الهاتف */
+   height: 100vh;
+    }
+  
+    .nav.active {
+        display: flex;
+    }
+    .menu-icon {
+        display: block;
+    }
+}
+/* التعديل الجديد علشان الكلام يظهر في نص الشاشة */
+@media (min-width: 834px) {
+    .header {
+        justify-content: center; /* علشان نركز العناصر في المنتصف */
+    }
+    .nav {
+        margin-right: 20px; /* علشان نبعد القائمة عن اللوجو */
+    }
+}
+a{
+    color: #1f53ff;
+}
+p {
+    margin: 20px;
+    margin-top: 5%;
+    font-size: 18px;
+    color: #414141;
+    text-align: center;
+}
+
+.header + p {
+    margin-top: 60px; /* Adjust this value as needed */
+}
+
+@media (max-width: 800px) {
+    p {
+        margin: 20px;
+        margin-top: 5%;
+        font-size: 16px;
+    }
+}
+
+.contenar {
+    background-color: #f7f7f7;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+  
+}
+
+/* تعريف الأنيميشن */
+@keyframes fadeInAnimation {
+    to {
+      opacity: 1;  /* العنصر يصبح مرئي */
+      transform: translateY(0);  /* العنصر يرتفع إلى مكانه الطبيعي */
+    }
+  }
+  
+  /* تأثير آخر عند إضافة صورة */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+.contenar h1 {
+    margin-top: 70px;
+    text-align: center;
+    font-size: 50px;
+    color: #000000;
+    opacity: 0;  /* بداية العنصر غير مرئي */
+    transform: translateY(20px);  /* بداية العنصر منخفض للأسفل */
+    animation: fadeInAnimation 1.5s ease-out forwards;  /* التطبيق للأنيميشن */
+}
+
+span.logo{
+    margin: 0;
+    background: linear-gradient(to right, blue, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contenar p {
+    font-size: 50px;
+    color: #000000;
+    margin-top: 20px;
+    text-align: center;
+    
+}
+
+@media (max-width: 600px) {
+    .contenar h1 {
+        font-size: 30px;
+    }
+
+    .contenar p {
+        font-size: 30px;
+    }
+    
+}
+.contenar img {
+    width: 35%;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contenar h4{
+    font-size: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .contenar h4 {
+        font-size: 20px;
+    }
+}
+
+
+
+ button {
+    font-size: 19px;
+    background-color: #1f53ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 35px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 600px) {
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+.contenar h2{
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .contenar h2 {
+        font-size: 18px;
+    }
+}
+
+
+
+
+
+
+
+
+.slider-container {
+    width: 90%;
+   
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden; /* ✅ منع التمدد */
+}
+
+.slider-container h1{
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+    font-size: 30px;
+    color: #333;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    white-space: nowrap; /* ✅ عدم السماح بالتمدد */
+}
+
+.slide {
+    flex-shrink: 0;
+    width: 100%; /* ✅ كل صورة تأخذ عرض الشاشة فقط */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 10px; /* ✅ إزالة الحدود وجعلها بدون حواف */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.slide img:hover {
+    transform: scale(1.05);
+}
+
+.caption {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.controls {
+    display: flex;
+    justify-content: center; /* ✅ وضع الأزرار في المنتصف تحت الصور */
+    margin-top: 15px;
+}
+
+.control-btn {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 10px;
+    border: none;
+    background: none;
+    color: #333;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+/* تأثير تكبير الصورة عند الضغط */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.lightbox.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+
+
+.pp{
+margin: 0;
+    text-align: right;
+    background-color: #ebebeb;
+    padding: 30px;
+    
+   
+  }
+  
+  .pp p{
+    margin: 10px;
+    width: 95%;
+    text-align: right;
+
+    font-size: 1rem;
+    color: #252525;
+  }
+  .pp h4{
+    text-align: right;
+
+    width: 92%;
+    font-size: 1.5rem;
+    color: #252525;
+  }
+  
+  hr {
+    border: 0;
+    border-top: 2px solid #949494;  /* اللون والسُمك */
+    width: 94%;  /* عرض الخط */
+    margin: 20px auto;  /* المسافة من الأعلى والأسفل */
+  }
+  
+  
