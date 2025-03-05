@@ -65,14 +65,7 @@ body{
     margin: 100px auto; /* Center the container horizontally */
     padding: 20px; /* Add some padding for better appearance */
 }
-.contenar img {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    margin-top: 20px;
-}
+
 .contenar h1 {
     color: white;
     font-size: 20px;
@@ -124,7 +117,21 @@ button:hover {
     padding: 10px 0;
     text-align: center;
   }
+ 
 
+  @media (max-width: 600px) {
+    .contenar{
+        width: 90%;
+        margin: 50px auto;}
+    .pp p{
+        margin: 5px;
+
+        font-size: 13px;
+    }
+    hr{
+        margin: 10px auto;
+    }
+  }
 </style>
 <body>
     <div class="header">
