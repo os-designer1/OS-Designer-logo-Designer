@@ -370,13 +370,7 @@ margin: 0;
     font-size: 1rem;
     color: #252525;
   }
-  .pp h4{
-    text-align: right;
 
-    width: 92%;
-    font-size: 1.5rem;
-    color: #252525;
-  }
   
   hr {
     border: 0;
@@ -385,4 +379,10 @@ margin: 0;
     margin: 20px auto;  /* المسافة من الأعلى والأسفل */
   }
   
-  
+  @media (max-width: 480px) {
+    .pp p {
+     
+      font-size: 12px;
+      
+    }
+  }
