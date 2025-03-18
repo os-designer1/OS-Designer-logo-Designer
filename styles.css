@@ -123,14 +123,7 @@ p {
   
 }
 
-/* تعريف الأنيميشن */
-@keyframes fadeInAnimation {
-    to {
-      opacity: 1;  /* العنصر يصبح مرئي */
-      transform: translateY(0);  /* العنصر يرتفع إلى مكانه الطبيعي */
-    }
-  }
-  
+
   /* تأثير آخر عند إضافة صورة */
   img {
     max-width: 100%;
@@ -141,14 +134,28 @@ p {
 .contenar h1 {
     margin-top: 70px;
     text-align: center;
-    font-size: 100px;
+    font-size: 150px; /* يبدأ بحجم كبير */
     color: #000000;
     opacity: 0;  /* بداية العنصر غير مرئي */
     transform: translateY(20px);  /* بداية العنصر منخفض للأسفل */
-    animation: fadeInAnimation 1.5s ease-out forwards;  /* التطبيق للأنيميشن */
+    animation: growShrinkAnimation 5s ease-out forwards;  /* التطبيق للأنيميشن */
 }
 
-span.logo{
+/* تعريف الأنيميشن */
+@keyframes growShrinkAnimation {
+    50% {
+        font-size: 100px; /* الحجم الأصغر في منتصف الأنيميشن */
+        opacity: 1;  /* العنصر يصبح مرئي */
+        transform: translateY(0);  /* العنصر يرتفع إلى مكانه الطبيعي */
+    }
+    to {
+        font-size: 90px; /* الحجم النهائي */
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+span.logo {
     margin: 0;
     background: linear-gradient(to right, blue, red);
     -webkit-background-clip: text;
@@ -161,35 +168,35 @@ span.logo{
     margin-top: 10px;
     text-align: center;
     position: relative;
-   
 }
 
-
-
-@media (max-width: 600px) {
-    .contenar h1 {
-        font-size: 40px;
-    }
-
-    .contenar p {
-        margin-top: 0;
-        font-size: 20px;
-    }
-    .contenar img {
-        width: 100%;
-       
-    }
-    .contenar h4 {
-        font-size: 20px;
-    }
-    
-}
 .contenar img {
     width: 35%;
     margin-top: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media (max-width: 600px) {
+    .contenar h1 {
+        font-size: 80px; /* حجم أصغر للشاشات الصغيرة */
+    }
+
+    .contenar p {
+        margin: 0;
+        font-size: 20px; /* حجم أصغر للنصوص */
+    }
+
+    .contenar img {
+        width: 80%; /* عرض أصغر للصور */
+    }
+}
+
+@media (max-width: 600px) {
+    .contenar img {
+        width: 80%; /* Adjust the width for smaller screens */
+    }
 }
 
 .contenar h4{
