@@ -15,3 +15,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+ // الحصول على جميع العناصر من الفئة "product"
+ const prodacts = document.querySelectorAll('.prodact,.prodact-2');
+
+ // إنشاء المراقب
+ const observer = new IntersectionObserver((entries) => {
+   entries.forEach(entry => {
+     if (entry.isIntersecting) {
+       entry.target.classList.add('active'); // تفعيل الأنيميشن
+     }
+   });
+ });
+
+ // مراقبة كل عنصر من المنتجات
+ prodacts.forEach(product => observer.observe(product));
