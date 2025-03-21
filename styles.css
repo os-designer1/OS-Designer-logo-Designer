@@ -9,7 +9,7 @@ body{
     font-family: "Zain", sans-serif;
     font-weight: 700;
     font-style: normal;  
-      background-color: #f0f0f0;
+      background-color:#ececec;
     justify-content: center;
     align-items: center;
 }
@@ -286,9 +286,101 @@ padding:8px 14px ;
   }
   
 
+.addres-slider {
+    background: linear-gradient(to left, #59deff, #004152);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 80px 20px;
+    font-size: 50px;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .addres-slider {
+        font-size: 30px;
+        padding: 50px 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .addres-slider {
+        font-size: 30px;
+        padding: 30px 5px;
+    }
+}
 
 
 
+.logo-design-section {
+    padding: 50px 0px;
+    max-width: 1000px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.logo-design-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+h1 {
+    color: #000;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+p {
+    padding: 5px 20px;
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.feature {
+    max-width: 250px;
+    flex: 1 1 100%; /* Default to full width */
+    margin-bottom: 20px;
+}
+.feature img {
+    width: 40px;
+    margin-bottom: 10px;
+}
+.feature p {
+    color: #333;
+    font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    .features {
+        flex-wrap: nowrap; /* Allow horizontal layout for larger screens */
+    }
+    .feature {
+        flex: 1 1 auto; /* Adjust width for larger screens */
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 28px;
+    }
+    p {
+        font-size: 16px;
+    }
+    .feature img {
+        width: 30px;
+    }
+    .feature p {
+        font-size: 14px;
+    }
+}
 
 
 .footer {
