@@ -340,7 +340,7 @@ p {
 .features {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 40px;
     text-align: center;
     flex-wrap: wrap;
 }
@@ -348,6 +348,7 @@ p {
     max-width: 250px;
     flex: 1 1 100%; /* Default to full width */
     margin-bottom: 20px;
+
 }
 .feature img {
     width: 40px;
@@ -370,19 +371,32 @@ p {
 @media (max-width: 500px) {
     h1 {
         font-size: 28px;
+        text-align: right;
+        padding-right: 20px;
     }
     p {
         font-size: 16px;
+        text-align: right;
+        padding-right: 20px;
+    }
+    .features{
+        display: flex;
+    justify-content: right;
+    text-align: right;
+    flex-wrap: wrap;
+        gap: 0;
     }
     .feature{
         margin: 0;
+        max-width: 50%;
     }
     .feature img {
+        margin-right:20px ;
         width: 30px;
     }
     .feature p {
-        font-size: 14px;
-        
+        font-size: 18px;
+        text-align: right;
     }
 }
 
