@@ -374,11 +374,15 @@ p {
     p {
         font-size: 16px;
     }
+    .feature{
+        margin: 0;
+    }
     .feature img {
         width: 30px;
     }
     .feature p {
         font-size: 14px;
+        
     }
 }
 
