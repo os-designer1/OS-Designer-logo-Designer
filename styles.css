@@ -280,22 +280,17 @@ padding: 30px 50px;
     background: linear-gradient(to right, #ff0000, #0077ff); /* تدرج لوني */
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
-   font-size: 260px;
+   font-size: 30px;
    text-align: center;
    margin-bottom: 50px;
    margin-top: 15px;
 }
 @media (max-width: 834px){
-    .h1-aput{
-         font-size: 40px;
-     }
-     .aput-pac h3{
+    .section-2 h4 {
         font-size: 20px;
-     }
-     .img-aput{
-        width: 80%;
-      border-radius: 10px;
-     }
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
 }
 .footer {
     padding: 50px;
