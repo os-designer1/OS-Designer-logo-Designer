@@ -188,6 +188,27 @@ body{
     }
 }
 
+
+#mainHeader {
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 1000;
+  }
+ 
+  #mainHeader.dark {
+    background-color: black;
+    color: white;
+  }
+  #mainHeader.dark a {
+    color: white;
+  }
+  #mainHeader.dark .header2-nav a.active::after {
+    background-color: white;
+  }
+
+
+
+
 .section-2{
     background-color: #eeeeee;
     display: flex;
@@ -209,6 +230,16 @@ padding: 30px 50px;
      font-size: 30px;
     text-align: center;
     
+}
+.section-2 h4 {
+
+    background: linear-gradient(to right, #ff0000, #0077ff); /* تدرج لوني */
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-size: 30px;
+   text-align: center;
+   margin-bottom: 50px;
+   margin-top: 15px;
 }
 .img-section-2{
     display: flex;
@@ -271,27 +302,12 @@ padding: 30px 50px;
         padding: 7px 13px;
         margin-top: 10px;
     }
-  
-}
-
-.section-2 h4 {
-
-    background: linear-gradient(to right, #ff0000, #0077ff); /* تدرج لوني */
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-   font-size: 30px;
-   text-align: center;
-   margin-bottom: 50px;
-   margin-top: 15px;
-}
-@media (max-width: 834px){
     .section-2 h4 {
         font-size: 20px;
         margin-top: 10px;
         margin-bottom: 20px;
     }
 }
-
 
 
 .section-3 {
@@ -301,9 +317,10 @@ padding: 30px 50px;
 
 .main-title {
     text-align: center;
-    font-size: 28px;
+    font-size: 80px;
     margin-bottom: 40px;
     color: #ffffff;
+    padding: 40px 0 10px 0;
 }
 
 .image-row {
@@ -319,15 +336,16 @@ padding: 30px 50px;
 
 .image-box img {
     width: 100%;
-    height: auto;
     border-radius: 8px;
 }
 
 .image-box p {
     margin-top: 10px;
-    font-size: 14px;
-    color: #dfdfdf;
-    text-align: center;
+    font-size: 20px;
+    background: linear-gradient(to right, #00ffdd, #0077ff , #ffffff); /* تدرج لوني */
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;  
+     text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -336,8 +354,7 @@ padding: 30px 50px;
     }
 
     .main-title {
-        font-size: 24px;
-        margin-bottom: 30px;
+        font-size: 20px;
     }
 
     .image-box {
@@ -355,7 +372,7 @@ padding: 30px 50px;
     }
 
     .main-title {
-        font-size: 20px;
+        font-size: 30px;
         margin-bottom: 20px;
     }
 
@@ -364,10 +381,93 @@ padding: 30px 50px;
     }
 
     .image-box p {
-        font-size: 10px;
+        font-size: 14px;
+    }
+    .image-box img {
+        width: 110%;
+        border-radius: 0px;
     }
 }
 
+.section-4{
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 50px; 
+}
+.text-h1-section-4{
+    background: linear-gradient(to right, #00e1ff, #001cb8); /* تدرج لوني */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;   
+     font-size: 100px;
+    text-align: center;
+    margin-top: 50px;
+    flex-direction: column;
+}
+.section-4 a{
+    color: #001aff;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.section-4 a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+.pinterest-container {
+    padding: 40px 20px;
+    background-color: #eeeeee;
+    text-align: center;
+  }
+  
+  .pinterest-container h2 {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .pinterest-grid {
+    column-count: 3;       /* عدد الأعمدة */
+    column-gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .pinterest-grid img {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: block;
+    break-inside: avoid;   /* يمنع تقطيع الصورة بين الأعمدة */
+  }
+  
+  @media (max-width: 768px) {
+    .pinterest-grid {
+      column-count: 2;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .pinterest-container{
+        padding: 0;
+    }
+    .pinterest-container h2 {
+        font-size: 18px;
+    }
+    .text-h1-section-4{
+        font-size: 35px;
+    }
+    .pinterest-grid {
+      column-count: 1;
+    }
+  }
+  
 
 
 

@@ -23,3 +23,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+
+
+
+const header = document.getElementById('mainHeader');
+  const blackSection = document.getElementById('blackSection');
+
+  window.addEventListener('scroll', () => {
+    const sectionTop = blackSection.getBoundingClientRect().top;
+    const sectionBottom = blackSection.getBoundingClientRect().bottom;
+
+    // لو الهيدر فوق الجزء الأسود (يعني أي جزء من الهيدر داخل الـ div الأسود)
+    if (sectionTop <= 50 && sectionBottom > 50) {
+      header.classList.add('dark');
+    } else {
+      header.classList.remove('dark');
+    }
+  });
+
+
+
