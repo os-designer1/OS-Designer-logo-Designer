@@ -40,14 +40,12 @@
            <a href="https://os-designer1.github.io/OS-Designer-logo-Teshrt-Designer/">لوجو علي تيشرت</a>
            <a href="https://os-designer1.github.io/OS-Designer-pepar-Designer/">خدمات الورقيه </a>
            <a href="https://os-designer1.github.io/support/">الدعم</a>
-        </div>    <a href="https://os-designer1.github.io/login/" class="account-icon" title="حسابي"  >
+        </div> 
+           <a href="https://os-designer1.github.io/login/" class="account-icon" title="حسابي"  >
             <i class="fas fa-user"></i>
         </a>
          <!-- أيقونة السلة -->
-<div class="cart-icon" onclick="toggleCart()">
-  <i class="fas fa-bag-shopping"></i>
-  <span class="cart-count" id="cart-count">0</span>
-</div>
+
 <style>
 
     .account-icon{
@@ -65,203 +63,219 @@
             }
         }
     </style>
-      
-      
-    
-      <div class="menu-icon" onclick="toggleNav()">☰</div>
 
-      <style>
-.cart-icon {
-          position: relative;
-          display: inline-block;
-          margin-left: 35px;
-          color: #000000;
-          font-size: 22px;
-          cursor: pointer;
-          vertical-align: middle;
-          z-index: 1100;
-      }
-      .cart-count {
-          position: absolute;
-          top: 9px;
-          right: -6px;
-          background: #a3a3a3;
-          color: #000000;
-          border-radius: 50%;
-          font-size: 12px;
-          padding: 1px 7px;
-
-      }
-      .cart-overlay {
-          display: none;
-          position: fixed;
-          top: 0; left: 0; right: 0; bottom: 0;
-          background: rgba(0,0,0,0.3);
-          backdrop-filter: blur(4px);
-          -webkit-backdrop-filter: blur(4px);
-          z-index: 1001;
-      }
-      .cart-sidebar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 340px;
-          max-width: 90vw;
-          height: 100%;
-          background: #fff;
-          z-index: 1002;
-          transform: translateX(-100%);
-          transition: transform 0.3s;
-          padding: 30px 20px 20px 20px;
-          overflow-y: auto;
-          direction: rtl;
-          color: #000000;
-      }
-      .cart-sidebar.active {
-          transform: translateX(0);
-      }
-      .close-cart {
-          font-size: 40px;
-          cursor: pointer;
-          color: #ff1900;
-      }
-      .cart-item {
-          display: flex;
-          align-items: center;
-          margin-bottom: 15px;
-          border-bottom: 1px solid #000000;
-          padding-bottom: 10px;
-      }
-      .cart-item img {
-          width: 55px;
-          height: 55px;
-          object-fit: cover;
-          margin-left: 12px;
-          border-radius: 8px;
-          border: 1px solid #000000;
-      }
-      @media (max-width: 600px) {
-          .cart-sidebar {
-              width: 95vw;
-              padding: 15px 5vw 15px 5vw;
-          }
-          .cart-icon {
-              margin-left: 0px;
-              font-size: 18px;
-          }
-      }
-      </style>
-
-      
-
-      <!-- غطاء السلة -->
-      <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
-      
-      <!-- السلة الجانبية -->
-      <div class="cart-sidebar" id="cart-sidebar">
-          <div class="cart-header">
-              <h2>سلة المشتريات</h2>
-              <span class="close-cart" onclick="toggleCart()">&times;</span>
-          </div>
-          <div id="cart-items">
-              <!-- العناصر تظهر هنا -->
-          </div>
-          <div class="cart-total">المجموع: <span id="cart-total">0</span> جنيه</div>
-      </div>
   
-      <script>
-          let cart = JSON.parse(localStorage.getItem('cart')) || [];
-          
-          // دالة إضافة منتج للسلة
-          function addToCart(id, name, price, image) {
-              // التحقق من وجود المنتج بالفعل
-              const existingItem = cart.find(item => item.id === id);
-              
-              if (existingItem) {
-                  existingItem.quantity += 1;
-              } else {
-                  cart.push({
-                      id,
-                      name,
-                      price,
-                      image,
-                      quantity: 1
-                  });
-              }
-              
-              updateCart();
-              alert(`تم إضافة ${name} إلى السلة`);
-          }
-          
-          // دالة حذف منتج من السلة
-          function removeFromCart(id) {
-              cart = cart.filter(item => item.id !== id);
-              updateCart();
-          }
-          
-          // دالة تعديل الكمية
-          function updateQuantity(id, newQuantity) {
-              const item = cart.find(item => item.id === id);
-              if (item) {
-                  item.quantity = Math.max(1, newQuantity); // الكمية لا تقل عن 1
-                  updateCart();
-              }
-          }
-          
-          // دالة عرض/إخفاء السلة
-          function toggleCart() {
-              const sidebar = document.getElementById('cart-sidebar');
-              const overlay = document.getElementById('cart-overlay');
-              sidebar.classList.toggle('active');
-              overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
-          }
-          
-          // دالة تحديث السلة
-          function updateCart() {
-              // تحديث العداد
-              const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-              document.getElementById('cart-count').textContent = totalItems;
-              
-              // تحديث العناصر
-              const cartItems = document.getElementById('cart-items');
-              const totalElement = document.getElementById('cart-total');
-              let total = 0;
-              
-              cartItems.innerHTML = '';
-              
-              if (cart.length === 0) {
-                  cartItems.innerHTML = '<p style="text-align:center; color:#888;">السلة فارغة</p>';
-              } else {
-                  cart.forEach(item => {
-                      const itemElement = document.createElement('div');
-                      itemElement.className = 'cart-item';
-                      itemElement.innerHTML = `
-                          <img src="${item.image}" alt="${item.name}">
-                          <div class="cart-item-details">
-                              <h4>${item.name}</h4>
-                              <p>${item.price} جنيه</p>
-                              <div class="cart-item-controls">
-                                  <button class="remove-btn" onclick="removeFromCart(${item.id})">
-                                      <i class="fas fa-trash"></i>
-                                  </button>
-                                  <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
-                                  <span class="quantity">${item.quantity}</span>
-                                  <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
-                              </div>
-                          </div>
-                      `;
-                      cartItems.appendChild(itemElement);
-                      total += item.price * item.quantity;
-                  });
-              }
-              
-              totalElement.textContent = total;
-              localStorage.setItem('cart', JSON.stringify(cart));
-          }
-          
-          // تحميل السلة عند بدء الصفحة
-          window.onload = updateCart;
-      </script>
+    <!-- أيقونة السلة في الهيدر -->
+    <div class="cart-icon" onclick="toggleCart()">
+        <i class="fas fa-bag-shopping"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+    <div class="menu-icon" onclick="toggleNav()">☰</div>
+
+    <!-- السلة الجانبية (خارج الهيدر وليس داخله) -->
+    </div> <!-- نهاية .header -->
+
+    <!-- السلة الجانبية وعناصرها خارج الهيدر لتظهر فوق كل الصفحة -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h2>سلة المشتريات</h2>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cart-items" style="flex-direction: column;">
+            <!-- العناصر تظهر هنا -->
+        </div>
+        <div class="cart-total" style="position: sticky; bottom: 20px; left: 20px; right: 20px; background: #fff; padding: 15px 0 10px 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.03); text-align: center;">
+            المجموع: <span id="cart-total">0</span> جنيه
+        </div>
+        <button id="send-order-btn" style="width:100%;background:#007bff;color:#fff;font-size:18px;padding:12px 0;border:none;border-radius:8px;cursor:pointer;margin-top:18px;transition:background 0.2s;">
+            <i class="fas fa-paper-plane" style="margin-left:8px;"></i>ارسال الطلبات
+        </button>
+        <script>
+            document.getElementById('send-order-btn').onmouseover = function() {
+                this.style.background = '#0056b3';
+            };
+            document.getElementById('send-order-btn').onmouseout = function() {
+                this.style.background = '#007bff';
+            };
+            </script>        
+    </div>
+
+    <style>
+    .cart-icon {
+        position: relative;
+        display: inline-block;
+        margin-left: 35px;
+        color: #474747;
+        font-size: 22px;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+    .cart-count {
+        position: absolute;
+        top: 11px;
+        right: -8px;
+        background: #000000;
+        color: #ffffff;
+        border-radius: 50%;
+        font-size: 12px;
+        padding: .2px 6px;
+
+
+    }
+    .cart-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.3);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 1001;
+    }
+    .cart-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 340px;
+        max-width: 90vw;
+        height: 100%;
+        background: #fff;
+        z-index: 1002;
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+        padding: 30px 20px 20px 20px;
+        overflow-y: auto;
+        direction: rtl;
+        color: #000000;
+    }
+    .cart-sidebar.active {
+        transform: translateX(0);
+    }
+    .close-cart {
+        font-size: 40px;
+        cursor: pointer;
+        color: #ff1900;
+    }
+    .cart-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #000000;
+        padding-bottom: 10px;
+    }
+    .cart-item img {
+        width: 55px;
+        height: 55px;
+        object-fit: cover;
+        margin-left: 12px;
+        border-radius: 8px;
+        border: 1px solid #000000;
+    }
+    @media (max-width: 600px) {
+        .cart-sidebar {
+            width: 95vw;
+            padding: 15px 5vw 15px 5vw;
+        }
+        .cart-icon {
+            margin-left: 0px;
+            font-size: 18px;
+        }
+    }
+    </style>
+
+    <script>
+     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // دالة إضافة منتج للسلة
+        function addToCart(id, name, price, image) {
+            // التحقق من وجود المنتج بالفعل
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id,
+                    name,
+                    price,
+                    image,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            alert(`تم إضافة ${name} إلى السلة`);
+        }
+        
+        // دالة حذف منتج من السلة
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+        }
+        
+        // دالة تعديل الكمية
+        function updateQuantity(id, newQuantity) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity = Math.max(1, newQuantity); // الكمية لا تقل عن 1
+                updateCart();
+            }
+        }
+        
+        // دالة عرض/إخفاء السلة
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('cart-overlay');
+            sidebar.classList.toggle('active');
+            overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
+        }
+        
+        // دالة تحديث السلة
+        function updateCart() {
+            // تحديث العداد
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+            
+            // تحديث العناصر
+            const cartItems = document.getElementById('cart-items');
+            const totalElement = document.getElementById('cart-total');
+            let total = 0;
+            
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align:center; color:#888;">السلة فارغة</p>';
+            } else {
+                cart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                <div>
+                    <h4>${item.name}</h4>
+                    <p>${item.price} جنيه</p>
+                    <div>
+                        <button onclick="updateQuantity('${item.id}', ${item.quantity - 1})" style="border:none;border-radius:50%;width:28px;height:28px;font-size:18px;color:#000;cursor:pointer;margin:0 5px;">-</button>
+                        <span style="display:inline-block;min-width:24px;text-align:center;font-weight:bold;font-size:16px;color:#222;background:#f7f7f7;border-radius:6px;padding:3px 8px;margin:0 2px;">${item.quantity}</span>
+                        <button onclick="updateQuantity('${item.id}', ${item.quantity + 1})" style=";border:none;border-radius:50%;width:28px;height:28px;font-size:18px;color:#000;cursor:pointer;margin:0 5px;">+</button>
+                        <button onclick="removeFromCart('${item.id}')" style="background:none;border:none;cursor:pointer;color:red;font-size:18px; padding: 0 5px;" title="حذف">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+                    cartItems.appendChild(itemElement);
+                    total += item.price * item.quantity;
+                });
+            }
+            
+            totalElement.textContent = total;
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        
+        // تحميل السلة عند بدء الصفحة
+        window.onload = updateCart;
+    </script>
 
         
       
