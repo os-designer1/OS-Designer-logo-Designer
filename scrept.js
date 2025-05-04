@@ -37,9 +37,9 @@ const header = document.getElementById('mainHeader');
 
     // لو الهيدر فوق الجزء الأسود (يعني أي جزء من الهيدر داخل الـ div الأسود)
     if (sectionTop <= 50 && sectionBottom > 50) {
-      header.classList.add('dark');
+      header.classList.add('white');
     } else {
-      header.classList.remove('dark');
+      header.classList.remove('white');
     }
   });
 
